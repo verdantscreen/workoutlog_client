@@ -17,7 +17,7 @@ const WorkoutEdit = (props) => {
 
   const workoutUpdate = (event, workout) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/log/${props.workoutToUpdate.id}`, {
+    fetch(`http://localhost:3001/log/${props.workoutToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({
         logdata: {
@@ -28,7 +28,7 @@ const WorkoutEdit = (props) => {
       }),
       headers: new Headers({
         "Content-Type": "application/json",
-        Authorization: props.token,
+        "Authorization": props.token,
       }),
     }).then((res) => {
       props.fetchWorkouts();

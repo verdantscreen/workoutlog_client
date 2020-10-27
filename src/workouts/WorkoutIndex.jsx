@@ -10,11 +10,11 @@ const WorkoutIndex = (props) => {
   const [workoutToUpdate, setWorkoutToUpdate] = useState({});
 
   const fetchWorkouts = () => {
-    fetch("http://localhost:3000/log", {
+    fetch("http://localhost:3001/log", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        Authorization: props.token,
+        "Authorization": props.token,
       }),
     })
       .then((res) => res.json())
@@ -37,7 +37,7 @@ const WorkoutIndex = (props) => {
 
   useEffect(() => {
     fetchWorkouts();
-  });
+  }, []);
 
   return (
     <Container>
